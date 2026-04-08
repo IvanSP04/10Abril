@@ -11,13 +11,13 @@ export default function App() {
   const renderScreen = () => {
     if (currentScreen === 'Home') return <HomeScreen />;
     if (currentScreen === 'Lista') return <ListScreen />;
-    if (currentScreen === 'Función') return <FunctionScreen />;
+    if (currentScreen === 'Buscar') return <FunctionScreen />;
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.navbar}>
-        {['Home', 'Lista', 'Función'].map((screen) => (
+        {['Home', 'Lista', 'Buscar'].map(screen => (
           <TouchableOpacity
             key={screen}
             style={[styles.navItem, currentScreen === screen && styles.activeItem]}
@@ -29,7 +29,7 @@ export default function App() {
           </TouchableOpacity>
         ))}
       </View>
-      <View style={styles.content}>
+      <View style={{ flex: 1 }}>
         {renderScreen()}
       </View>
     </SafeAreaView>
@@ -37,11 +37,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f5' },
-  navbar: { flexDirection: 'row', backgroundColor: '#2196F3', paddingTop: 10 },
+  container: { flex: 1, backgroundColor: '#fff' },
+  navbar: { flexDirection: 'row', backgroundColor: '#FFD700', paddingTop: 10 },
   navItem: { flex: 1, padding: 15, alignItems: 'center' },
-  activeItem: { borderBottomWidth: 3, borderBottomColor: '#fff' },
-  navText: { color: 'rgba(255,255,255,0.7)', fontWeight: '600' },
-  activeText: { color: '#fff' },
-  content: { flex: 1 },
+  activeItem: { borderBottomWidth: 3, borderBottomColor: '#000' },
+  navText: { color: 'rgba(0,0,0,0.5)', fontWeight: '600' },
+  activeText: { color: '#000' },
 });
